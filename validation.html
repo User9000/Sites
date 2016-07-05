@@ -1,0 +1,44 @@
+s<!doctype html>
+
+<html>
+<head>
+    
+    <title>Ajax</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+
+    </style>    
+    
+    <script type="text/javascript"  src="jquery.min.js">
+        </script>
+</head>
+<body>
+
+
+<h1>Asychronous Javascript And XML</h1>
+<h3>It means that it happens in the background .... other bits of javascripts happends
+    at the same time.
+</h3>
+
+
+<script>  
+
+  $.ajax({
+             url:"test.html"
+          }).done(function(data){
+
+           $("h1").append(data);
+      });
+
+
+
+</script>
+        
+  </body>
+        
+ </html>       
+
+
