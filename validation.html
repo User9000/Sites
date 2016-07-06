@@ -1,4 +1,4 @@
-s<!doctype html>
+<!doctype html>
 
 <html>
 <head>
@@ -9,6 +9,51 @@ s<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style type="text/css">
+       
+        #container{
+
+            width: 500px;
+            margin: 0 auto;
+            font-family: helvetica;
+            font-size: 1.2em;
+        }
+
+        input{
+
+          width: 300px;
+          height: 30px;
+          padding: 7px;
+          font-size: 1.2em;
+          border-radius: 5px;
+          border:  1px solid grey;
+          margin-bottom: 10px;
+
+        }
+        label{
+
+            width: 150px;
+            float: left;
+            padding: 10px;
+            
+        }
+
+        #submit{
+
+            height: 50px;
+            width:300px;
+            padding: 7px;
+           
+        }
+        #error{
+
+            color:red;
+            padding: 2px;
+            font-size: 0.75em;
+            margin-left: 220px;
+            margin-bottom: 7px;
+        }
+
+
 
     </style>    
     
@@ -18,22 +63,79 @@ s<!doctype html>
 <body>
 
 
-<h1>Asychronous Javascript And XML</h1>
-<h3>It means that it happens in the background .... other bits of javascripts happends
-    at the same time.
-</h3>
+    <div id="container">
+
+        <form id="validationForm">
+                <h1>Fill information</h1>
+               <div id="error"></div>        
+                
+                <label for="email">Email</label>
+                <input name="email" id="email"/ >
+
+            <label for="phone">Telephone</label>
+                <input name="phone" id="phone"/ >
+        
+        
+                <label for="pass1">Password</label>
+                <input name="pass1" type="password" id="pass1"/ >
+
+            <label for="pass2">Confirm Psassword</label>
+                <input name="pass2" id="pass2"/ >
+
+                <input id="submit" type="submit" value="submit"/>
+
+        </form>
+    </div>
+
+    
 
 
 <script>  
 
-  $.ajax({
-             url:"test.html"
-          }).done(function(data){
+  $("#validationForm").submit(function (event){
+ 
+      event.preventDefault();
 
-           $("h1").append(data);
-      });
+        var errorMessage="Please enter a valid";
+    
+  
+//validate email
+  if  (!validateEmail($("#email").val())){
+
+      // alert('invalid  ');
+    errorMessage= errorMessage+" email address";
+     $('#error').html(errorMessage);
+
+  }
+
+//validate telephone 
+  if  (!$.isNumeric($("#phone").val())){
+
+      // alert('invalid  ');
+    errorMessage= errorMessage +" Telephone";
+     $('#error').html(errorMessage);
+
+  }
+
+//valid passwords 
+  if  ($("#pass1").val() != $("#pass2").val()){
+
+    errorMessage= errorMessage +" No matching password";
+     $('#error').html(errorMessage);
 
 
+  }
+
+      
+
+  });
+
+
+ //this function validates email. 
+ function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
 
 </script>
         
