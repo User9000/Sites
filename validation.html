@@ -34,6 +34,7 @@
             width: 150px;
             float: left;
             padding: 10px;
+            font-family: sans-serif;
             
         }
 
@@ -53,6 +54,12 @@
             margin-bottom: 7px;
         }
 
+        #title{
+             margin-left: 190px;
+             font-family: sans-serif;
+
+        }
+
 
 
     </style>    
@@ -66,7 +73,7 @@
     <div id="container">
 
         <form id="validationForm">
-                <h1>Fill information</h1>
+                <h1 id="title">Fill information</h1>
                <div id="error"></div>        
                 
                 <label for="email">Email</label>
@@ -82,7 +89,7 @@
             <label for="pass2">Confirm Psassword</label>
                 <input name="pass2" id="pass2"/ >
 
-                <input id="submit" type="submit" value="submit"/>
+                <input id="submit" type="submit" value="Submit"/>
 
         </form>
     </div>
@@ -96,14 +103,14 @@
  
       event.preventDefault();
 
-        var errorMessage="Please enter a valid";
+        var errorMessage="";
     
   
 //validate email
   if  (!validateEmail($("#email").val())){
 
       // alert('invalid  ');
-    errorMessage= errorMessage+" email address";
+    errorMessage= errorMessage+"</br> Please enter a valid email address";
      $('#error').html(errorMessage);
 
   }
@@ -112,7 +119,7 @@
   if  (!$.isNumeric($("#phone").val())){
 
       // alert('invalid  ');
-    errorMessage= errorMessage +" Telephone";
+    errorMessage= errorMessage +" </br> Please enter a valid Telephone";
      $('#error').html(errorMessage);
 
   }
@@ -120,13 +127,13 @@
 //valid passwords 
   if  ($("#pass1").val() != $("#pass2").val()){
 
-    errorMessage= errorMessage +" No matching password";
+    errorMessage= errorMessage +"</br> No matching password";
      $('#error').html(errorMessage);
 
 
   }
 
-      
+      checkMessage(errorMessage);
 
   });
 
@@ -135,6 +142,19 @@
  function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+}
+
+//check error message
+
+function checkMessage (var1) {
+
+    if(var1 == ""){
+ 
+       aler("we will send the message");
+
+    }
+
+
 }
 
 </script>

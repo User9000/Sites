@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html>
+<head>
+    
+    <title>jQuery UI </title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+       
+        #square{
+
+            height: 200px;
+            width: 200px;
+            background-color: green;
+
+        }
+        #word{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            color:white;
+            padding-top:  85px;
+            padding-left: 30px;
+            font-size: 1.2em;
+        }
+       
+        #square2{
+
+            height: 200px;
+            width: 200px;
+            background-color: red;
+
+        }
+
+
+    </style>    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+</script>
+</head>
+<body>
+
+
+    <div id="square">
+       <p id="word"> drag me around</p>
+    </div>
+
+     <div id="square2">
+       <p id="word"> resize me </p>
+    </div>
+
+
+<script>  
+    $("#square").draggable();
+     $("#square2").resizable();
+
+</script>
+        
+  </body>
+        
+ </html>       
+
+
