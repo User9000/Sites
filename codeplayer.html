@@ -1,0 +1,346 @@
+
+
+
+<!doctype html>
+
+<html>
+<head>
+    
+    <title>CodePlayer</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+
+    body{
+
+        margin: 0 auto;
+        
+    }
+
+    #container{
+
+    
+        width: 1500px;
+        font-family: sans-serif;
+    }
+
+       #panel{
+
+
+           height:60px;
+           background-color:#5f5f5f;
+           font-family: sans-serif;
+           position:relative;
+           margin: 0 auto;
+           letter-spacing: 1px;
+
+
+
+
+
+       }
+       #panel ul{
+           margin:0px;
+           margin-top:20px;
+           margin-left: 380px;
+           float:left;
+
+
+       }
+
+       #panel li{
+
+        list-style: none;
+        float:left;
+        margin-left: 1px;
+        background-color:white;
+        border: 1px solid black;
+        border-radius: 7%;
+        padding: 8px;
+       }
+
+       #panel h2{
+        float:left;
+        margin:0px;
+        margin-top:20px;
+        margin-left: 20px;
+        color:white;
+
+       }
+
+       #submit{
+
+           margin-left: 180px;
+           margin-top: 20px;
+           width: 80px;
+           font-size: 1.2em;
+           border-radius: 8%;
+       }
+
+
+       #clear{
+
+      
+           margin-top: 20px;
+           width: 80px;
+           font-size: 1.2em;
+           border-radius: 8%;
+       }
+
+       #reload{
+
+      
+           margin-top: 20px;
+           width: 80px;
+           font-size: 1.2em;
+           border-radius: 8%;
+       }
+
+     
+       #html{
+           margin: 0px;
+           float:left;
+           width: 353px;
+           height: 600px;
+           border: 1px solid black;
+           margin-left: 1px;
+           padding-top:10px;
+           padding-left: 2px;
+       
+       }
+           #css{
+           margin: 0px;
+           float:left;
+           width: 353px;
+           height: 600px;
+           border: 1px solid black;
+           margin-left: 1px;
+           padding-top:10px;
+            padding-left: 2px;
+       }
+           #js{
+           margin: 0px;
+           float:left;
+           width: 353px;
+           height: 600px;
+           border: 1px solid black;
+           margin-left: 1px;
+           padding-top:10px;
+            padding-left: 2px;
+       }
+          #result{
+           margin: 0px;
+           float:left;
+           width: 353px;
+           height: 600px;
+           border: 1px solid black;
+           margin-left: 1px;
+            padding-top:10px;
+             padding-left: 2px;
+       }
+
+       #enter{
+
+           float:left;
+       }
+       #bhtml:hover{
+
+           background-color: orange  !important;;
+           box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+          cursor: pointer;
+       }
+      #bcss:hover{
+
+           background-color: orange  !important;;
+               box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            cursor: pointer;
+       }
+        #bjs:hover{
+
+           background-color: orange  !important;
+               box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            cursor: pointer;
+       }
+        #bresult:hover{
+
+           background-color: orange !important;
+               box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+
+           cursor: pointer;
+       }
+
+       #clearthis{
+           clear: both;
+       }
+       #enter{
+           margin-top:5px;
+           margin-left: 10px;
+           width: 350px;
+           height: 35px;
+           font-size: 1.4em;
+         
+       
+       }
+     
+    </style>    
+ 
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+</script>
+</head>
+
+
+
+<body>
+    <div id="container">
+
+    <div id="panel">
+        <h2>CodePlayer</h2>  
+
+        <ul>
+            <li id="bhtml">HTML</li>
+            <li id="bcss">CSS</li>
+            <li id="bjs">JS</li>
+            <li id="bresult">Result</li>
+         </ul> 
+
+         <button id="submit">Run</button>
+
+           <button id="clear">Clear</button>
+           <button id="reload">Reload</button>
+
+    </div>
+
+       <div id="html">
+
+
+       </div>
+
+  <div id="css">
+
+
+       </div>
+ <div id="js">
+
+
+       </div>
+
+        <div id="result">
+
+
+       </div>
+<div id="clearthis"></div>
+       <input type="text" id="enter"/>
+        
+    </div>
+
+
+<script>  
+  var bhtmlC = 0;
+  var bcssC =0;
+  var bjsC=0;
+  var bresult = 0;
+
+
+
+//html button
+    $("#bhtml").click(function(){
+
+      
+
+           if( bhtmlC > 0 )
+           {
+               $("#bhtml").css("backgroundColor","white");
+               $("#html").empty();
+               bhtmlC=0;
+
+           }
+           else{
+
+            bhtmlC++;
+           $("#bhtml").css("backgroundColor","gray");
+           $("#html").text("<div id='test'>HelloWorld</div>");
+
+           }
+
+
+          
+
+    });
+
+    //css button
+     $("#bcss").click(function(){
+
+           if(bcssC > 0)
+           {
+               $("#bcss").css("backgroundColor","white");
+               $("#css").empty();
+               bcssC=0;
+           }
+           else{
+
+            bcssC++;
+           $("#bcss").css("backgroundColor","gray");
+           $("#css").text("#test{  background-color:green; }");
+          
+
+           }
+          
+
+    });
+    //js button
+ $("#bjs").click(function(){
+
+        if (bjsC > 0 ){
+            $("#bjs").css("backgroundColor","white");
+            $("#js").empty();
+            bjsC=0;
+
+        }
+        else{
+
+           $("#bjs").css("backgroundColor","gray");
+           $("#js").text("<div><p>HelloWorld</p></div>");
+           bjsC++;
+
+        }
+          
+
+    });
+
+    //result button
+ $("#bresult").click(function(){
+
+
+     
+      if(bhtmlC >0 && bcssC > 0)
+      {
+        $("#result").append("<div id='test'>HelloWorld</div>");
+        $("#test").css("backgroundColor","green");
+        
+      }
+      else if (bhtmlC > 0 &&  bcssC == 0 ){
+
+           $("#result").append("<div id='test'>HelloWorld</div>");
+      }
+
+
+           
+
+
+          
+
+    });
+
+
+
+</script>
+        
+  </body>
+        
+ </html>       
+
+
