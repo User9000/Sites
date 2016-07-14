@@ -242,7 +242,7 @@
   var bhtmlC = 0;
   var bcssC =0;
   var bjsC=0;
-  var bresult = 0;
+  var bresultC = 0;
 
 
 
@@ -255,11 +255,18 @@
            {
                $("#bhtml").css("backgroundColor","white");
                $("#html").empty();
+               
+               clearCss();
+               clearJs();
+               clearResult();
                bhtmlC=0;
 
            }
            else{
+                if (bresultC > 0 ){
 
+                    clearResult();
+                }
             bhtmlC++;
            $("#bhtml").css("backgroundColor","gray");
            $("#html").text("<div id='test'>HelloWorld</div>");
@@ -278,10 +285,14 @@
            {
                $("#bcss").css("backgroundColor","white");
                $("#css").empty();
+               clearResult();
                bcssC=0;
            }
            else{
+                if (bresultC > 0 ){
 
+                    clearResult();
+                }
             bcssC++;
            $("#bcss").css("backgroundColor","gray");
            $("#css").text("#test{  background-color:green; }");
@@ -297,11 +308,15 @@
         if (bjsC > 0 ){
             $("#bjs").css("backgroundColor","white");
             $("#js").empty();
+            clearResult();
             bjsC=0;
 
         }
         else{
+               if (bresultC > 0 ){
 
+                    clearResult();
+                }
            $("#bjs").css("backgroundColor","gray");
            $("#js").text("<div><p>HelloWorld</p></div>");
            bjsC++;
@@ -314,9 +329,26 @@
     //result button
  $("#bresult").click(function(){
 
+    if(checkCounters())
+{
+      if (bresultC > 0){
+            
+             clearResult();
 
+      }
+      else {
+            $("#bresult").css("backgroundColor","gray");
+              checkIt();
+
+            bresultC++;
+      }
      
-      if(bhtmlC >0 && bcssC > 0)
+}
+    });
+//depending on the buttons click display on the result box.
+
+   function checkIt() {
+    if(bhtmlC >0 && bcssC > 0)
       {
         $("#result").append("<div id='test'>HelloWorld</div>");
         $("#test").css("backgroundColor","green");
@@ -326,16 +358,55 @@
 
            $("#result").append("<div id='test'>HelloWorld</div>");
       }
+      else if ( bhtmlC == 0 && bcssC > 0){
+        
+           alert("It needs html selected");
+        
+
+      }
+   }
+//clear the result box
+   function clearResult(){
+
+         $("#bresult").css("backgroundColor","white");
+               $("#result").empty();
+               bresultC=0;
 
 
-           
+   }
+//clears the CSS box 
+function clearCss (){
+         $("#bcss").css("backgroundColor","white");
+               $("#css").empty();
+               
+               bcssC=0;
+
+}
+
+//clears the js script box
+function clearJs(){
+
+      $("#bjs").css("backgroundColor","white");
+            $("#js").empty();
+      
+            bjsC=0;
 
 
-          
-
-    });
+}
 
 
+//checks to see if the buttons are selected
+function checkCounters(){
+  
+  if (bhtmlC == 0 &&  bcssC==0 ){
+
+      alert("nothing to display");
+    return false;
+
+  }
+  return true;
+
+}
 
 </script>
         
