@@ -14,21 +14,14 @@
     <style type="text/css">
 
     body{
-
-        margin: 0 auto;
-        
-    }
-
+     margin: 0 auto;
+  }
     #container{
-
-    
         width: 1500px;
         font-family: sans-serif;
     }
 
        #panel{
-
-
            height:60px;
            background-color:#5f5f5f;
            font-family: sans-serif;
@@ -36,22 +29,15 @@
            margin: 0 auto;
            letter-spacing: 1px;
 
-
-
-
-
        }
        #panel ul{
            margin:0px;
            margin-top:20px;
            margin-left: 380px;
            float:left;
-
-
-       }
+      }
 
        #panel li{
-
         list-style: none;
         float:left;
         margin-left: 1px;
@@ -71,34 +57,25 @@
        }
 
        #submit{
-
            margin-left: 180px;
            margin-top: 20px;
            width: 80px;
            font-size: 1.2em;
            border-radius: 8%;
        }
-
-
-       #clear{
-
-      
+        #clear{
            margin-top: 20px;
            width: 80px;
            font-size: 1.2em;
            border-radius: 8%;
        }
 
-       #reload{
-
-      
+       #reload{   
            margin-top: 20px;
            width: 80px;
            font-size: 1.2em;
            border-radius: 8%;
        }
-
-     
        #html{
            margin: 0px;
            float:left;
@@ -191,9 +168,6 @@
 
 </script>
 </head>
-
-
-
 <body>
     <div id="container">
 
@@ -244,18 +218,13 @@
   var bjsC=0;
   var bresultC = 0;
 
-
-
 //html button
     $("#bhtml").click(function(){
-
-      
 
            if( bhtmlC > 0 )
            {
                $("#bhtml").css("backgroundColor","white");
                $("#html").empty();
-               
                clearCss();
                clearJs();
                clearResult();
@@ -272,9 +241,6 @@
            $("#html").text("<div id='test'>HelloWorld</div>");
 
            }
-
-
-          
 
     });
 
@@ -296,9 +262,7 @@
             bcssC++;
            $("#bcss").css("backgroundColor","gray");
            $("#css").text("#test{  background-color:green; }");
-          
-
-           }
+       }
           
 
     });
@@ -330,20 +294,20 @@
  $("#bresult").click(function(){
 
     if(checkCounters())
-{
-      if (bresultC > 0){
-            
-             clearResult();
+    {
+        if (bresultC > 0){
+                
+          clearResult();
 
-      }
-      else {
-            $("#bresult").css("backgroundColor","gray");
-              checkIt();
+        }
+        else {
+          $("#bresult").css("backgroundColor","gray");
+           checkIt();
+           bresultC++;
+        }
+        
+    }
 
-            bresultC++;
-      }
-     
-}
     });
 //depending on the buttons click display on the result box.
 
@@ -361,7 +325,6 @@
       else if ( bhtmlC == 0 && bcssC > 0){
         
            alert("It needs html selected");
-        
 
       }
    }
@@ -369,17 +332,17 @@
    function clearResult(){
 
          $("#bresult").css("backgroundColor","white");
-               $("#result").empty();
-               bresultC=0;
+         $("#result").empty();
+         bresultC=0;
 
 
    }
 //clears the CSS box 
 function clearCss (){
+
          $("#bcss").css("backgroundColor","white");
-               $("#css").empty();
-               
-               bcssC=0;
+         $("#css").empty();
+         bcssC=0;
 
 }
 
@@ -387,13 +350,10 @@ function clearCss (){
 function clearJs(){
 
       $("#bjs").css("backgroundColor","white");
-            $("#js").empty();
-      
-            bjsC=0;
-
+      $("#js").empty();
+       bjsC=0;
 
 }
-
 
 //checks to see if the buttons are selected
 function checkCounters(){
@@ -401,6 +361,7 @@ function checkCounters(){
   if (bhtmlC == 0 &&  bcssC==0 ){
 
       alert("nothing to display");
+
     return false;
 
   }
