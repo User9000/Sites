@@ -301,8 +301,14 @@
 
         }
         else {
-          $("#bresult").css("backgroundColor","gray");
-           checkIt();
+         
+           
+
+           if(checkIt()){
+
+                 $("#bresult").css("backgroundColor","gray");
+
+           }
            bresultC++;
         }
         
@@ -316,15 +322,19 @@
       {
         $("#result").append("<div id='test'>HelloWorld</div>");
         $("#test").css("backgroundColor","green");
+        return true;
         
       }
       else if (bhtmlC > 0 &&  bcssC == 0 ){
 
            $("#result").append("<div id='test'>HelloWorld</div>");
+           return true;
       }
       else if ( bhtmlC == 0 && bcssC > 0){
         
            alert("It needs html selected");
+
+           return false;
 
       }
    }
