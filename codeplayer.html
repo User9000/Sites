@@ -96,7 +96,7 @@
        border-right: 1px solid gray;
        box-sizing: border-box;
        font-family: monotype;
-       font-size: 90%;
+       font-size: 120%;
        padding: 5px;
 
 
@@ -110,7 +110,7 @@
        border-right: 1px solid gray;
        box-sizing: border-box;
        font-family: monotype;
-       font-size: 90%;
+       font-size: 120%;
        padding: 5px;
 
 
@@ -163,7 +163,7 @@
 
  <div class="codeContainer" id="JSContainer">
 
-             <textarea>Javascript</textarea>
+             <textarea id="js">alert('hello world');</textarea>
        </div>
  <div class="codeContainer" id="ResultContainer">
 
@@ -398,6 +398,7 @@ $("#runButton").click(function(){
 
    $("iframe").contents().find("html").html("<style>"+$('#css').val()+"</style>"+$("#html").val());
 
+   eval($("#js").val());
 
 });
 
