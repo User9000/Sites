@@ -47,6 +47,18 @@
         margin-left: 20px;
         color:white;
  }
+
+
+ #runButton{
+     padding: 6px;
+     float: left;
+     margin-top:20px;
+     margin-left: 200px;
+     font-family: HelveticaNeue-Light;
+     font-size: 1.2em;
+
+
+ }
       
     #CSSContainer,#JSContainer{
         display: none;
@@ -90,6 +102,19 @@
 
    }
 
+      .codeContainer iframe{
+
+       width: 100%;
+       height: 100%;
+       border: none;
+       border-right: 1px solid gray;
+       box-sizing: border-box;
+       font-family: monotype;
+       font-size: 90%;
+       padding: 5px;
+
+
+
    .selected{
 
        background-color: gray !important;
@@ -114,20 +139,25 @@
             <li class="toggle" name="js">JS</li>
             <li class="toggle selected" name="result">Result</li>
          </ul> 
+    
+    
+    
+    <button id="runButton">Run</button>
 
     </div>
 
+    
     <div class="clear"></div>
 
        <div class="codeContainer" id="HTMLContainer">
-           <textarea>HTML</textarea>
+           <textarea id="html">HTML</textarea>
 
 
        </div>
 
   <div class="codeContainer" id="CSSContainer">
 
-                <textarea>CSS</textarea>
+                <textarea id="css">CSS</textarea>
 
        </div>
 
@@ -137,7 +167,8 @@
        </div>
  <div class="codeContainer" id="ResultContainer">
 
-             <textarea>Result</textarea>
+             
+             <iframe id="resultFrame"></iframe>
        </div>
  
 <div class="clear"></div>
@@ -361,6 +392,16 @@ $(".toggle").click(function(){
 
 
 });
+
+
+$("#runButton").click(function(){
+
+   $("iframe").contents().find("html").html("<style>"+$('#css').val()+"</style>"+$("#html").val());
+
+
+});
+
+
 
 
 </script>
