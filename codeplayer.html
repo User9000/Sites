@@ -110,10 +110,10 @@
        border-right: 1px solid gray;
        box-sizing: border-box;
        font-family: monotype;
-       font-size: 120%;
+       font-size: 140%;
        padding: 5px;
 
-
+      }
 
    .selected{
 
@@ -350,6 +350,7 @@ var windowHeight =$(window).height();
 var panelHeight= $("#panel").height();
 var codeContainer= windowHeight - panelHeight;
 
+//set the height of each box 
 $(".codeContainer").height(codeContainer+"px");
 
 
@@ -376,9 +377,7 @@ $(".toggle").click(function(){
 
 //by filtering which divs are not displaying...get the number
      var showingDivs=$(".codeContainer").filter(function(){
-
-
-         return($(this).css("display")!="none");
+        return($(this).css("display")!="none");
 
      }).length;
   
@@ -387,18 +386,15 @@ $(".toggle").click(function(){
 
   $(".codeContainer").width(width+"%");
 
- 
-      
-
-
 });
 
-
+//get whatever is inside the css, html and javascript boxes and run it.
 $("#runButton").click(function(){
 
    $("iframe").contents().find("html").html("<style>"+$('#css').val()+"</style>"+$("#html").val());
+    
 
-   eval($("#js").val());
+    document.getElementById("resultFrame").contentWindow.eval($("#js").val());
 
 });
 
